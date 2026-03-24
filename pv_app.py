@@ -322,11 +322,11 @@ with st.sidebar.form("project_form"):
     loan_rate = st.number_input("📈 贷款利率 (%)", min_value=1.0, max_value=10.0, value=6.0, step=0.5)
     
     st.markdown("### 🔧 发电量修正")
-    pr = st.slider("🔧 系统效率PR (%)", 0.60, 0.95, 0.80, 0.01, format="%.0f%%")
-    pr = pr / 100
+    pr_pct = st.slider("🔧 系统效率PR (%)", 60, 95, 80, 1)
+    pr = pr_pct / 100
     tilt = st.slider("📐 组件倾角 (°)", 0, 45, 30, 5)
-    dust_loss = st.slider("🌫️ 灰尘遮挡损失 (%)", 0, 10, 3, 1, format="%.0f%%")
-    dust_loss = dust_loss / 100
+    dust_loss_pct = st.slider("🌫️ 灰尘遮挡损失 (%)", 0, 10, 3, 1)
+    dust_loss = dust_loss_pct / 100
     
     submitted = st.form_submit_button("🚀 开始测算", type="primary")
 
